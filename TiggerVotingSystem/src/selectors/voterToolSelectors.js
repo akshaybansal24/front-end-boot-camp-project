@@ -22,6 +22,6 @@ const sortItems = (unsortedItems, sortCol, sortDir) => {
     });
 }
 
-export const sortedCarsSelector = state => {
-    return sortItems(state.cars, state.carsSort.sortCol, state.carsSort.sortDir);
+export const sortedVotersSelector = state => {
+    return sortItems(state.voters, state.votersSort.sortCol, state.votersSort.sortDir);
 }
