@@ -20,8 +20,8 @@ export const VoterTable = props => {
                 </tr>
             </thead>
             <tbody>
-                { props.voters.map(voter => voter.id !== props.editvoterID ?
-                     <VoterViewRow key={voter.id} voter={voter} deleteVoter={props.onDeletevoter} editVoter={props.onEditvoterID} /> : 
+                { props.voters.map(voter => voter.id !== props.editVoterID ?
+                     <VoterViewRow key={voter.id} voter={voter} deleteVoter={props.onDeleteVoter} editVoter={props.onEditVoterID} /> : 
                      <VoterEditRow key={voter.id} voter={voter} cancel={props.onEditVoterID} save={props.onClickSave} />) }
             </tbody>
         </table>
