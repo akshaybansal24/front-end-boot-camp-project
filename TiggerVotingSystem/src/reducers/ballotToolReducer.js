@@ -1,20 +1,22 @@
-import { VOTER_SUBMISSION_END } from '../actions/ballotToolActions';
+import { VOTER_VERIFY_START, VOTER_VERIFY_END, VOTER_SUBMISSION_START, VOTER_SUBMISSION_END } from '../actions/ballotToolActions';
 import { combineReducers } from "redux";
 
-const initialBallot = {
-    election: '',
-    question: '',
-    yes: 0,
-    no: 0,
-}
-const ballotToolReducer = (ballot=[initialBallot], action) => {
-    // when user submits vote, state election count is updated
-    //voter submission status should also be updated?
+const ballotToolReducer = (state= {}, action) => {
+    if (action.type=== VOTER_VERIFY_START) {
+
+
+    }
+    if (action.type=== VOTER_VERIFY_END) {
+
+    }
+    if (action.type=== VOTER_SUBMISSION_START) {
+
+    }
     if (action.type=== VOTER_SUBMISSION_END) {
         
     }
 
-    return ballot
+    return state;
 
 };
 

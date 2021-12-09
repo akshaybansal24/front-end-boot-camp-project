@@ -23,8 +23,13 @@ export const ElectionTool = () =>{
     const store = useElectionToolStore();
 
     const onAddElection = election => {
-        store.addElection(election);
-        store.addQuestion([]);
+        const newElection = {
+            ...election,
+            questions: store.questions
+        }
+        store.addElection(newElection);
+        store.resetQuestions();
+        //store.addQuestion([]);
     }
 
     console.log("Number of questions = " + store.questions.length);
