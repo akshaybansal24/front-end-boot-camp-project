@@ -31,6 +31,7 @@ export const VoterForm = props => {
                 FIRST NAME:
                     <input type="text" name="firstName" value={voterForm.firstName} onChange={change} ></input>
             </label>
+            &emsp;
             <label>
                 LAST NAME:
                     <input type="text" name="lastName" value={voterForm.lastName} onChange={change} ></input>
@@ -55,10 +56,12 @@ export const VoterForm = props => {
                 EMAIL:
                     <input type="text" name="email" value={voterForm.email} onChange={change} ></input>
             </label>
+            &emsp;
             <label>
                 PHONE:
                     <input type="text" name="phone" value={voterForm.phone} onChange={change} ></input>
             </label>
+            &emsp;
             <button type="button" onClick={submitVoter} >{props.buttonText}</button>
         </form>
     );

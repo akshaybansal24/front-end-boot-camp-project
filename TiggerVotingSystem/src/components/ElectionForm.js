@@ -53,30 +53,33 @@ export const ElectionForm = props => {
         });
     }
     return (
-        <form>
-            <label>
-                Name:
-                <input type="text" name="name" value={electionForm.name} onChange={change}></input>
-            </label>
-            <label>
-                Year:
-                <input type="text" name="year" value={electionForm.year} onChange={change}></input>
-            </label>
-            <section>
-            {
-                electionForm.questions.map(question => { return(
-                    <label >
-                        Question:
-                        <textarea id={question.id} rows="2" columns="40" name="question" value={question.question} onChange={changeQuestion}></textarea>
-                    </label>
-                    )
-                })
-            }
-            </section>
-            <button type="button" onClick={addAnotherQuestion} >Add Another Question</button>
-            
+        <section>
+            <h1 style={{fontSize: "1.5rem"}}>Form to Add New Eelction</h1>
+            <form>
+                <label>
+                    Name:
+                    <input type="text" name="name" value={electionForm.name} onChange={change}></input>
+                </label>
+                <label>
+                    Year:
+                    <input type="text" name="year" value={electionForm.year} onChange={change}></input>
+                </label>
+                <section>
+                {
+                    electionForm.questions.map(question => { return(
+                        <label >
+                            Question:
+                            <textarea id={question.id} rows="2" columns="40" name="question" value={question.question} onChange={changeQuestion}></textarea>
+                        </label>
+                        )
+                    })
+                }
+                </section>
+                <button type="button" onClick={addAnotherQuestion} >Add Another Question</button>
+                
 
-            <button type="button" onClick={submitElection} >{props.addElectionButtonText}</button>
-        </form>
+                <button type="button" onClick={submitElection} >{props.addElectionButtonText}</button>
+            </form>
+        </section>
     );
 };

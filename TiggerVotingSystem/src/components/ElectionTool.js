@@ -4,43 +4,33 @@ import { ElectionForm } from './ElectionForm';
 import { useElectionToolStore } from '../hooks/useElectionToolStore';
 import {ElectionResults} from "./ElectionResults";
 
-// Mocked Election Results...
-const election =       {
-        "id": 1,
-        "name": "California Election",
-        "year": 2022,
-        "questions": [
-            {
-                "id": 1,
-                "question": "Should TCH be legal?",
-                "yes": 2,
-                "no": 0
-            },
-            {
-                "id": 2,
-                "question": "Assisted suicide?",
-                "yes": 1,
-                "no": 1
-            }
+import {useState} from 'react';
 
-        ],
-        "voters": [
-            1, 2
-        ]
-    };
+// Mocked Election Results...
 
 export const ElectionTool = () =>{
 
-    const viewElectionResults = () => {
-        console.log("View Results - Placeholder");
+    const [viewElectionResult, setViewElectionResult] = useState(-1);
+
+    const[election, setElection] = useState({});
+
+    const viewElectionResults = electionToDisplay => {
+        setElection({
+            ...electionToDisplay
+        });
+        setViewElectionResult(electionToDisplay.id);
     }
 
     const store = useElectionToolStore();
     return(
         <>
             <ElectionList elections={store.elections} onViewElectionResults={viewElectionResults}/>
+            &emsp;
             <ElectionForm addElectionButtonText="Add Election" onSubmitElection={store.addElection} />
-            <ElectionResults election={election} />
+            &emsp;
+            {
+                viewElectionResult !== -1 ? <ElectionResults election={election} /> : <div></div>
+            }
         </>
     )
 };
