@@ -11,7 +11,100 @@
       "phone": "123-456-7890"
     }
   ],
-
+  "elections": [
+    {
+      "id": 1,
+      "name": "California Election",
+      "year": 2022,
+      "questions": [
+        {
+          "id": 1,
+          "question": "Should TCH be legal?"
+        },
+        {
+          "id": 2,
+          "question": "Assisted suicide?"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Federal Election Election",
+      "year": 2022,
+      "questions": [
+        {
+          "id": 1,
+          "question": "Should TCH be legal?"
+        },
+        {
+          "id": 2,
+          "question": "Assisted suicide?"
+        }
+      ]
+    }
+  ],
+  "votes": [
+    {
+      "id": 1,
+      "voterId": 1,
+      "electionId": 1,
+      "questions": [
+        {
+          "id": 1,
+          "vote": "yes"
+        },
+        {
+          "id": 2,
+          "vote": "no"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "voterId": 1,
+      "electionId": 2,
+      "questions": [
+        {
+          "id": 1,
+          "vote": "yes"
+        },
+        {
+          "id": 2,
+          "vote": "no"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "voterId": 3,
+      "electionId": 1,
+      "questions": [
+        {
+          "id": 1,
+          "vote": "yes"
+        },
+        {
+          "id": 2,
+          "vote": "no"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "voterId": 2,
+      "electionId": 2,
+      "questions": [
+        {
+          "id": 1,
+          "vote": "yes"
+        },
+        {
+          "id": 2,
+          "vote": "no"
+        }
+      ]
+    }
+  ],
   "colors": [
     {
       "id": 1,
