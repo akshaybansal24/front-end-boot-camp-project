@@ -8,6 +8,6 @@ export const VoterFormContainer = () => {
     const voterToolStore = useVoterToolStore();
 
     return(
-        <VoterForm buttonText="Add Voter" onSubmitVoter={voterToolStore.addVoter}></VoterForm>
+        <VoterForm buttonText="Register Voter" onSubmitVoter={voterToolStore.addVoter}></VoterForm>
     )
 }

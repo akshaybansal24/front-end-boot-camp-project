@@ -7,17 +7,20 @@ import { Layout } from './Layout';
 
 
 import { VoterTool } from './VoterTool';
+import { VoterFormTool } from './VoterFormTool';
 import { ElectionTool } from './ElectionTool';
 import { BallotTool } from './BallotTool';
 
 
 import { Provider } from 'react-redux';
 import { voterToolStore } from '../stores/voterToolStore';
-import { colorToolStore } from '../stores/colorToolStore';
 import { electionToolStore } from "../stores/electionToolStore";
 
 
 export const App = () =>{
+
+  
+
     return (
         <Router path="/">
           <Layout>
@@ -33,6 +36,14 @@ export const App = () =>{
             <main>
                 <Route path="/" exact>
                     <h1>Home Page</h1>
+                    <Link to="/voter-form-tool"> Register Voter </Link>
+                    <br/>
+                    <Link to="/voter-tool"> Display Registered Voters </Link>
+                </Route>
+                <Route path="/voter-form-tool">
+                  <Provider store={voterToolStore} >
+                    <VoterFormTool />
+                  </Provider>
                 </Route>
 
                 <Route path="/voter-tool">
