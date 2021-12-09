@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import {
     addVoter,
     deleteVoter,
+    deleteMultipleVoters,
     saveVoter,
     createEditVoterAction,
     createSortVoterAction,
@@ -28,6 +29,7 @@ export const useVoterToolStore = () => {
         refreshVoters,
         addVoter,
         deleteVoter,
+        deleteMultipleVoters,
         editVoter: createEditVoterAction,
         sortVoter: createSortVoterAction,
         saveVoter

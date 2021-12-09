@@ -1,5 +1,4 @@
 export const VoterViewRow = props => {
-
     return (
         <tr key={props.voter.id}>
             <td>{props.voter.id}</td>
@@ -13,6 +12,7 @@ export const VoterViewRow = props => {
             <td>
                 <button type="button" onClick={() => props.editVoter(props.voter.id)}>Edit</button>
                 <button type="button" onClick={() => props.deleteVoter(props.voter.id)}>Delete</button>
+                <input type="checkbox" name="DeleteCars" value={props.voter.id} onClick={() => props.selectRowsToDelete(props.voter.id)}></input>
             </td>
         </tr>
     )

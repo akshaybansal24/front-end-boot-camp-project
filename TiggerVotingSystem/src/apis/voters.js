@@ -45,3 +45,9 @@ export const deleteVoterInDB = async(voterID) => {
           method: 'DELETE',
         });
 };
+
+export const deleteMultipleVotersInDB = async(voterIDList) => {
+    console.log("Inside the API");
+    console.log(voterIDList);
+    return await voterIDList.forEach(voterID => deleteVoterInDB(voterID));
+};

@@ -13,6 +13,7 @@ export const VoterTableContainer = () => {
                 onDeleteVoter={voterToolStore.deleteVoter} 
                 onClickSave={voterToolStore.saveVoter} 
                 onClickSort={voterToolStore.sortVoter}
-                sortButtonText={voterToolStore.votersSort.sortCol + "-" + voterToolStore.votersSort.sortDir} />
+                sortButtonText={voterToolStore.votersSort.sortCol + "-" + voterToolStore.votersSort.sortDir} 
+                onClickDeleteMultipleVoters={voterToolStore.deleteMultipleVoters}/>
     )
 }

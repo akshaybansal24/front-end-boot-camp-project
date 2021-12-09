@@ -1,4 +1,4 @@
-import { all, append, deleteVoterInDB, replace} from '../apis/voters';
+import { all, append, deleteVoterInDB, replace, deleteMultipleVotersInDB} from '../apis/voters';
 
 export const REFRESH_VOTERS_REQUEST_ACTION = 'REFRESH_VOTERS_REQUEST_ACTION';
 export const REFRESH_VOTERS_DONE_ACTION = 'REFRESH_VOTERS_DONE_ACTION';
@@ -13,6 +13,9 @@ export const DELETE_VOTER = 'DELETE';
 export const SAVE_VOTER = 'SAVE';
 export const SAVE_VOTER_REQUEST_ACTION = 'SAVE_VOTER_REQUEST_ACTION';
 export const SAVE_VOTER_DONE_ACTION = 'SAVE_VOTER_DONE_ACTION';
+export const DELETE_MULTIPLE_VOTERS_REQUEST_ACTION = 'DELETE_MULTIPLE_VOTERS_REQUEST_ACTION';
+export const DELETE_MULTIPLE_VOTERS_DONE_ACTION = 'DELETE_MULTIPLE_VOTERS_DONE_ACTION';
+export const DELETE_MULTIPLE_VOTERS_ACTION = 'DELETE_MULTIPLE_VOTERS_ACTION';
 
 export const SORT_ASC = "Ascending";
 export const SORT_DESC = "Descending";
@@ -63,5 +66,16 @@ export const saveVoter = voter => {
     return dispatch => {
         dispatch(createSaveRequestVoterAction(voter));
         replace(voter).then(() => dispatch(refreshVoters()));
+    };
+};
+
+export const createDeleteMultipleVotersRequestAction = voterIDs => ({ type: DELETE_MULTIPLE_VOTERS_REQUEST_ACTION, payload: {voterIDs} });
+
+export const createDeleteMultipleVotersDoneAction = voterIDs => ({ type: DELETE_MULTIPLE_VOTERS_DONE_ACTION, payload: {voterIDs} });
+
+export const deleteMultipleVoters = voterIDs => {
+    return dispatch => {
+        dispatch(createDeleteMultipleVotersRequestAction(voterIDs));
+        deleteMultipleVotersInDB(voterIDs).then(() => dispatch(refreshVoters()));
     };
 };
