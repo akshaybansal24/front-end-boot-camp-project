@@ -19,12 +19,20 @@
       "questions": [
         {
           "id": 1,
-          "question": "Should TCH be legal?"
+          "question": "Should TCH be legal?",
+          "yes": 2,
+          "no": 0
         },
         {
           "id": 2,
-          "question": "Assisted suicide?"
+          "question": "Assisted suicide?",
+          "yes": 1,
+          "no": 1
         }
+
+      ],
+      "voters": [
+        1, 2
       ]
     },
     {
@@ -33,13 +41,20 @@
       "year": 2022,
       "questions": [
         {
-          "id": 1,
-          "question": "Should TCH be legal?"
+          "id": 3,
+          "question": "Should TCH be legal?",
+          "yes": 2,
+          "no": 0
         },
         {
-          "id": 2,
-          "question": "Assisted suicide?"
+          "id": 4,
+          "question": "Assisted suicide?",
+          "yes": 1,
+          "no": 1
         }
+      ],
+      "voters": [
+        1, 2
       ]
     }
   ],

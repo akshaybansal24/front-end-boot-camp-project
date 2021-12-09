@@ -1,15 +1,9 @@
-import { ElectionQuestionList } from "./ElectionQuestionList";
-
 export const ElectionResults = props => {
-
-    let filteredVotes = props.votes.filter(vote => { return (vote.electionId === props.election.id)});
-
-    console.log(filteredVotes);
 
     return(
         <ul>
             {
-                filteredVotes.map(vote => { return (<ElectionQuestionList vote={vote} questions={vote.questions}/>)})
+                props.election.questions.map(question => { return (<li key={question.id}>Yes: {question.yes}  No: {question.no} </li>) } )
             }
         </ul>
     );
@@ -17,6 +11,4 @@ export const ElectionResults = props => {
 
 ElectionResults.defaultProps = {
     election: {},
-    votes: [],
-
 }
