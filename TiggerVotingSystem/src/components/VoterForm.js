@@ -3,11 +3,13 @@ import { useForm } from "../hooks/useForm";
 export const VoterForm = props => {
 
     const [ voterForm, change, resetVoterForm] = useForm({
-        make: '',
-        model: '',
-        year: 1990,
-        color: '',
-        price: 2300,
+        firstName: '',
+        lastName: '',
+        address: '',
+        city: '',
+        birthdate: '',
+        email: '',
+        phone: '',
     });
 
     const submitVoter = () => {
