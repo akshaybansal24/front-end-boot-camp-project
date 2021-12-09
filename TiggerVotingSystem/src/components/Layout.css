@@ -23,7 +23,7 @@
 .container > header {
     grid-area: header;
     background-color: navy;
-    color: white;
+    color: orange;
 
     padding-left: 20px;
 
@@ -95,7 +95,7 @@
 .container > footer {
     grid-area: footer;
     background-color: navy;
-    color: white;
+    color: orange;
 
     padding-top: 8px;
 
