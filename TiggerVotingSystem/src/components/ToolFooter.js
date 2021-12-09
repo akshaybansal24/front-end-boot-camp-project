@@ -1,7 +1,7 @@
 export const ToolFooter = props => {
     return(
         <footer>
-            <small>{props.footerText}</small>
+            <small>&copy; {props.footerText}</small>
         </footer>
     );
 }

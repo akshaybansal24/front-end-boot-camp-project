@@ -42,7 +42,7 @@ export const App = () =>{
     return (
         <Router path="/">
           <Layout>
-            <ToolHeader headerText="The Tools" />  
+            <ToolHeader headerText="Tigger Voting Tool" />
             <nav>
                 <ul className="menu">
                 <li className="menu-item"><Link to="/">Home</Link></li>
@@ -72,7 +72,7 @@ export const App = () =>{
                 </Route> */}
             </main>
             <aside>Sidebar</aside>
-            <ToolFooter footerText="A cool compamy" />
+            <ToolFooter footerText="Tigger Voting System" />
           </Layout>
         </Router>
       )
