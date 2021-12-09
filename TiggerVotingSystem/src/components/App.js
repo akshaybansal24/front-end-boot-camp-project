@@ -15,6 +15,7 @@ import { BallotTool } from './BallotTool';
 import { Provider } from 'react-redux';
 import { voterToolStore } from '../stores/voterToolStore';
 import { electionToolStore } from "../stores/electionToolStore";
+import { tiggerVoterStore } from "../stores/tiggerVoterStore";
 
 
 export const App = () =>{
@@ -41,23 +42,23 @@ export const App = () =>{
                     <Link to="/voter-tool" className="btn btn-primary" > Display Registered Voters </Link>
                 </Route>
                 <Route path="/voter-form-tool">
-                  <Provider store={voterToolStore} >
+                  <Provider store={tiggerVoterStore} >
                     <VoterFormTool />
                   </Provider>
                 </Route>
 
                 <Route path="/voter-tool">
-                  <Provider store={voterToolStore} >
+                  <Provider store={tiggerVoterStore} >
                     <VoterTool />
                   </Provider>
                 </Route>
                 <Route path="/election-tool">
-                    <Provider store={electionToolStore}>
+                    <Provider store={tiggerVoterStore}>
                         <ElectionTool />
                     </Provider>
                 </Route>
                 <Route path="/ballot-tool">
-                    <Provider store={electionToolStore}>
+                    <Provider store={tiggerVoterStore}>
                         <BallotTool />
                     </Provider>
                 </Route>

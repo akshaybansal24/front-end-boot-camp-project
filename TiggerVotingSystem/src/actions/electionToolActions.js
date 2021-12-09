@@ -5,6 +5,8 @@ export const REFRESH_ELECTIONS_DONE_ACTION = "REFRESH_ELECTIONS_DONE_ACTION";
 export const ADD_ELECTION_REQUEST_ACTION = "ADD_ELECTION_REQUEST_ACTION";
 export const ADD_ELECTION_DONE_ACTION = "ADD_ELECTION_DONE_ACTION";
 
+export const ADD_QUESTION_ACTION = 'ADD_QUESTION_ACTION';
+
 
 export const createRefreshElectionsRequestAction = () => ({type: REFRESH_ELECTIONS_REQUEST_ACTION});
 export const createRefreshElectionsDoneAction = elections => (
@@ -31,4 +33,6 @@ export const addElection = election => {
         appendElection(election).then(() => dispatch(refreshElections()));
     };
 };
+
+export const createAddQuestionAction = questions => ({type: ADD_QUESTION_ACTION, payload: {questions}});
 

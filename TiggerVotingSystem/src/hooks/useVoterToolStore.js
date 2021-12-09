@@ -20,8 +20,8 @@ export const useVoterToolStore = () => {
     const voters = useSelector(sortedVotersSelector);
     console.log("From Selector")
     console.log(voters);
-    const votersSort = useSelector(state => state.votersSort);
-    const editVoterId = useSelector(state => state.editVoterId);
+    const votersSort = useSelector(state => state.voterState.votersSort);
+    const editVoterId = useSelector(state => state.voterState.editVoterId);
 
     const dispatch = useDispatch();
 

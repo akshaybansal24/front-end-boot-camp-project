@@ -5,15 +5,11 @@ export const ElectionForm = props => {
     const [electionForm, change, resetElectionForm, setElectionForm] = useForm({
         name: '',
         year: '',
-        questions: [{
-            id: 1,
-            question: '',
-            yes: -1,
-            no: -1,
-        }],
-        voters: []
+        questions: props.questions,
     });
-
+    electionForm.questions = props.questions;
+    console.log("Elction Form : " + JSON.stringify(electionForm.questions));
+    console.log("Elction Form : " + JSON.stringify(props.questions));
     const submitElection = () => {
         console.log(electionForm);
 
@@ -23,19 +19,9 @@ export const ElectionForm = props => {
     };
 
     const addAnotherQuestion = () => {
-        const electionFormCopy = {...electionForm};
-        const newQuestion = {
-            question: '',
-            yes: -1,
-            no: -1,
-            id: Math.max(...electionForm.questions.map(item => item.id) , 0) + 1,
-        }
-        electionFormCopy.questions.push(newQuestion);
-        console.log(electionFormCopy);
-        setElectionForm({
-            ...electionFormCopy
-        });
-        
+        console.log("Adding Question")
+        console.log(electionForm.questions);
+        props.addQuestion(electionForm.questions);
     }
 
     const changeQuestion = e => {

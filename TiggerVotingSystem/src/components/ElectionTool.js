@@ -3,7 +3,6 @@ import { ElectionForm } from './ElectionForm';
 
 import { useElectionToolStore } from '../hooks/useElectionToolStore';
 import {ElectionResults} from "./ElectionResults";
-
 import {useState} from 'react';
 
 // Mocked Election Results...
@@ -22,11 +21,20 @@ export const ElectionTool = () =>{
     }
 
     const store = useElectionToolStore();
+
+    const onAddElection = election => {
+        store.addElection(election);
+        store.addQuestion([]);
+    }
+
+    console.log("Number of questions = " + store.questions.length);
+    console.log(JSON.stringify(store.questions));
+
     return(
         <>
             <ElectionList elections={store.elections} onViewElectionResults={viewElectionResults}/>
             &emsp;
-            <ElectionForm addElectionButtonText="Add Election" onSubmitElection={store.addElection} />
+            <ElectionForm addElectionButtonText="Add Election" onSubmitElection={onAddElection} questions={store.questions} addQuestion={store.addQuestion}/>
             &emsp;
             {
                 viewElectionResult !== -1 ? <ElectionResults election={election} /> : <div></div>
