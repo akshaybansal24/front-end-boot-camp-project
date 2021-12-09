@@ -25,6 +25,7 @@ export const ElectionForm = props => {
                 Year:
                     <input type="text" name="year" value={electionForm.year} onChange={change}></input>
             </label>
+
             {/*<label>*/}
             {/*    Questions:*/}
             {/*    <input type="textarea" name="questions" value={electionForm.questions} onChange={change}></input>*/}
