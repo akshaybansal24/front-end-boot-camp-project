@@ -46,7 +46,7 @@ export const App = () =>{
                     </Provider>
                 </Route>
                 <Route path="/ballot-tool">
-                    <Provider store={colorToolStore}>
+                    <Provider store={electionToolStore}>
                         <BallotTool />
                     </Provider>
                 </Route>
