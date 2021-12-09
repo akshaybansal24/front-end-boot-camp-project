@@ -2,14 +2,14 @@ import { useForm } from "../hooks/useForm";
 
 export const ElectionForm = props => {
 
-    const [electionForm, change, resetElectionForm, setElectionForm] = useForm({
+    const isEmpty = arr => !Array.isArray(arr) || arr.length === 0;
+
+    const [electionForm, change, resetElectionForm,setElectionForm] = useForm({
         name: '',
         year: '',
-        questions: props.questions,
+        question: ''
     });
-    electionForm.questions = props.questions;
-    console.log("Elction Form : " + JSON.stringify(electionForm.questions));
-    console.log("Elction Form : " + JSON.stringify(props.questions));
+    
     const submitElection = () => {
         console.log(electionForm);
 
@@ -18,25 +18,12 @@ export const ElectionForm = props => {
         resetElectionForm();
     };
 
-    const addAnotherQuestion = () => {
-        console.log("Adding Question")
-        console.log(electionForm.questions);
-        props.addQuestion(electionForm.questions);
-    }
-
-    const changeQuestion = e => {
-        console.log("here");
-        console.log(e);
-        const electionFormCopy = {...electionForm};
-        const indexToUpdate = parseInt(e.target.id) -1 ;
-        console.log(indexToUpdate);
-        const questionsCopy = [...electionFormCopy.questions];
-        console.log(questionsCopy[indexToUpdate]);
-        questionsCopy[indexToUpdate].question = e.target.value;
+    const onSubmitAddQuestion = () => {
+        props.addQuestion(electionForm.question);
         setElectionForm({
-            ...electionFormCopy,
-            questions: [...questionsCopy]
-        });
+            ...electionForm,
+            question: ''
+        })
     }
     return (
         <section>
@@ -51,17 +38,24 @@ export const ElectionForm = props => {
                     <input type="text" name="year" value={electionForm.year} onChange={change}></input>
                 </label>
                 <section>
-                {
-                    electionForm.questions.map(question => { return(
-                        <label >
-                            Question:
-                            <textarea id={question.id} rows="2" columns="40" name="question" value={question.question} onChange={changeQuestion}></textarea>
-                        </label>
-                        )
-                    })
-                }
+                    <ul>
+                        { isEmpty(props.questions)
+                            ? <li>No Questions</li> : 
+                            props.questions.map(question => {
+                                    return(
+                                        <li key={question.id}>{question.question}</li>
+                                    );
+                                }
+                            
+                            )}
+                    </ul>
+                    <label >
+                        Question:
+                        <textarea rows="2" columns="40" name="question" value={electionForm.question} onChange={change}></textarea>
+                    </label>
+                    <button type="button" onClick={onSubmitAddQuestion} >Add Question</button>
                 </section>
-                <button type="button" onClick={addAnotherQuestion} >Add Another Question</button>
+                
                 
 
                 <button type="button" onClick={submitElection} >{props.addElectionButtonText}</button>
