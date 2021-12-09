@@ -1,43 +1,21 @@
 
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
-//import { HelloWorld } from './components/HelloWorld';
-import { VoterTool } from './VoterTool';
-//import { ColorToolStoreProvider } from '../contexts/colorToolStoreContext';
-import { ColorTool } from './ColorTool';
-//import { CarToolStoreProvider } from '../contexts/carToolStoreContext';
+
 import { ToolHeader } from './ToolHeader';
 import { ToolFooter } from './ToolFooter';
 import { Layout } from './Layout';
 
+
+import { VoterTool } from './VoterTool';
+import { ElectionTool } from './ElectionTool';
+import { BallotTool } from './BallotTool';
+
+
 import { Provider } from 'react-redux';
 import { voterToolStore } from '../stores/voterToolStore';
 import { colorToolStore } from '../stores/colorToolStore';
+import { electionToolStore } from "../stores/electionToolStore";
 
-
-// import { calcToolStore } from '../stores/calcToolStore';
-// import { CalcTool } from './CalcTool';
-
-
-// //function declaration
-// function HelloWorld(){
-
-// }
-
-// //function expression
-// const HelloWorld2 = function(){
-
-// };
-
-// const colorList = [
-//   {id: 1, name: 'red', hexcode: 'ff0000'},
-//   {id: 2, name: 'green', hexcode: '00ff00'},
-//   {id: 3, name: 'blue', hexcode: '0000ff'}
-// ];
-
-// const carList = [
-//   {id: 1, make: 'Lexus', model: 'NX 300', year: 2021, color: 'Atomic Silver', price: 53000, isEditable: false},
-//   {id: 2, make: 'Tesla', model: 'Model 3', year: 2021, color: 'Red', price: 72000, isEditable: false}
-// ];
 
 export const App = () =>{
     return (
@@ -47,30 +25,31 @@ export const App = () =>{
               <nav>
                 <ul className="menu">
                 <li className="menu-item"><Link to="/">Home</Link></li>
-                <li className="menu-item"><Link to="/color-tool">Color Tool</Link></li>
                 <li className="menu-item"><Link to="/voter-tool">Voter Tool</Link></li>
-                <li className="menu-item"><Link to="/calc-tool">Calc Tool</Link></li>
+                    <li className="menu-item"><Link to="/election-tool">Election Tool</Link></li>
+                    <li className="menu-item"><Link to="/ballot-tool">Ballot Tool</Link></li>
                 </ul>
             </nav>
             <main>
                 <Route path="/" exact>
                     <h1>Home Page</h1>
                 </Route>
-                <Route path="/color-tool">
-                    <Provider store={colorToolStore}>
-                      <ColorTool />
-                    </Provider>
-                </Route>
+
                 <Route path="/voter-tool">
                   <Provider store={voterToolStore} >
                     <VoterTool />
                   </Provider>
                 </Route>
-                {/* <Route path="/calc-tool">
-                  <Provider store={calcToolStore} >
-                    <CalcTool />
-                  </Provider>
-                </Route> */}
+                <Route path="/election-tool">
+                    <Provider store={electionToolStore}>
+                        <ElectionTool />
+                    </Provider>
+                </Route>
+                <Route path="/ballot-tool">
+                    <Provider store={colorToolStore}>
+                        <BallotTool />
+                    </Provider>
+                </Route>
             </main>
             <aside>Sidebar</aside>
             <ToolFooter footerText="Tigger Voting System" />
