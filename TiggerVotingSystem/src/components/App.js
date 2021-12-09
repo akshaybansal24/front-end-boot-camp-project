@@ -13,6 +13,7 @@ import { Provider } from 'react-redux';
 import { voterToolStore } from '../stores/voterToolStore';
 import { colorToolStore } from '../stores/colorToolStore';
 
+
 // import { calcToolStore } from '../stores/calcToolStore';
 // import { CalcTool } from './CalcTool';
 
@@ -42,8 +43,8 @@ export const App = () =>{
     return (
         <Router path="/">
           <Layout>
-            <ToolHeader headerText="Tigger Voting Tool" />
-            <nav>
+              <ToolHeader headerText="Tigger Voting Tool" message="Life is not about how fast you run on how high you climb but how well you bounce" />
+              <nav>
                 <ul className="menu">
                 <li className="menu-item"><Link to="/">Home</Link></li>
                 <li className="menu-item"><Link to="/color-tool">Color Tool</Link></li>
