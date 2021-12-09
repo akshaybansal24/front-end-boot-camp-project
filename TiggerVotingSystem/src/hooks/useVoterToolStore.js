@@ -11,8 +11,8 @@ import {
     createEditVoterAction,
     createSortVoterAction,
     refreshVoters
-} from '../actions/VoterToolActions';
-import { sortedVotersSelector } from '../selectors/VoterToolSelectors';
+} from '../actions/voterToolActions';
+import { sortedVotersSelector } from '../selectors/voterToolSelectors';
 
 export const useVoterToolStore = () => {
 

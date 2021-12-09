@@ -1,67 +1,67 @@
-import { all, append, deleteCarInDB, replace} from '../apis/cars';
+import { all, append, deleteVoterInDB, replace} from '../apis/voters';
 
-export const REFRESH_CARS_REQUEST_ACTION = 'REFRESH_CARS_REQUEST_ACTION';
-export const REFRESH_CARS_DONE_ACTION = 'REFRESH_CARS_DONE_ACTION';
-export const ADD_CAR_REQUEST_ACTION = 'ADD_CAR_REQUEST_ACTION';
-export const ADD_CAR_DONE_ACTION = 'ADD_CAR_DONE_ACTION';
-export const ADD_CAR = 'ADD_CAR';
-export const EDIT_CAR = 'EDIT';
-export const SORT_CAR = 'SORT';
-export const DELETE_CAR_REQUEST_ACTION = 'DELETE_CAR_REQUEST_ACTION';
-export const DELETE_CAR_DONE_ACTION = 'DELETE_CAR_DONE_ACTION';
-export const DELETE_CAR = 'DELETE';
-export const SAVE_CAR = 'SAVE';
-export const SAVE_CAR_REQUEST_ACTION = 'SAVE_CAR_REQUEST_ACTION';
-export const SAVE_CAR_DONE_ACTION = 'SAVE_CAR_DONE_ACTION';
+export const REFRESH_VOTERS_REQUEST_ACTION = 'REFRESH_VOTERS_REQUEST_ACTION';
+export const REFRESH_VOTERS_DONE_ACTION = 'REFRESH_VOTERS_DONE_ACTION';
+export const ADD_VOTER_REQUEST_ACTION = 'ADD_VOTER_REQUEST_ACTION';
+export const ADD_VOTER_DONE_ACTION = 'ADD_VOTER_DONE_ACTION';
+export const ADD_VOTER = 'ADD_VOTER';
+export const EDIT_VOTER = 'EDIT';
+export const SORT_VOTER = 'SORT';
+export const DELETE_VOTER_REQUEST_ACTION = 'DELETE_VOTER_REQUEST_ACTION';
+export const DELETE_VOTER_DONE_ACTION = 'DELETE_VOTER_DONE_ACTION';
+export const DELETE_VOTER = 'DELETE';
+export const SAVE_VOTER = 'SAVE';
+export const SAVE_VOTER_REQUEST_ACTION = 'SAVE_VOTER_REQUEST_ACTION';
+export const SAVE_VOTER_DONE_ACTION = 'SAVE_VOTER_DONE_ACTION';
 
 export const SORT_ASC = "Ascending";
 export const SORT_DESC = "Descending";
 
-export const createRefreshCarRequestAction = () => ({ type: REFRESH_CARS_REQUEST_ACTION});
-export const createRefreshCarDoneAction = cars => (
-        { type: REFRESH_CARS_DONE_ACTION, payload: {cars}}
+export const createRefreshVoterRequestAction = () => ({ type: REFRESH_VOTERS_REQUEST_ACTION});
+export const createRefreshVoterDoneAction = voters => (
+        { type: REFRESH_VOTERS_DONE_ACTION, payload: {voters}}
     );
 
-export const refreshCars = () => {
+export const refreshVoters = () => {
     return dispatch => {
-        dispatch(createRefreshCarRequestAction());
-        return all().then(cars => dispatch(createRefreshCarDoneAction(cars)));
+        dispatch(createRefreshVoterRequestAction());
+        return all().then(voters => dispatch(createRefreshVoterDoneAction(voters)));
     }
 }
 
-export const createAddCarRequestAction = car => ({ type: ADD_CAR_REQUEST_ACTION, payload: {car} });
+export const createAddVoterRequestAction = voter => ({ type: ADD_VOTER_REQUEST_ACTION, payload: {voter} });
 
-export const createAddCarDoneAction = car => ({ type: ADD_CAR_DONE_ACTION, payload: {car} });
+export const createAddVoterDoneAction = voter => ({ type: ADD_VOTER_DONE_ACTION, payload: {voter} });
 
-export const addCar = car => {
+export const addVoter = voter => {
     return dispatch => {
-        dispatch(createAddCarRequestAction(car));
-        append(car).then(() => dispatch(refreshCars()));
+        dispatch(createAddVoterRequestAction(voter));
+        append(voter).then(() => dispatch(refreshVoters()));
     };
 };
 
-export const createEditCarAction = car => ({ type: EDIT_CAR, payload: {car} });
+export const createEditVoterAction = voter => ({ type: EDIT_VOTER, payload: {voter} });
 
-export const createDeleteRequestCarAction = carID => ({ type: DELETE_CAR_REQUEST_ACTION, payload: {carID} });
+export const createDeleteRequestVoterAction = carID => ({ type: DELETE_VOTER_REQUEST_ACTION, payload: {carID} });
 
-export const createDeleteDoneCarAction = carID => ({ type: DELETE_CAR_DONE_ACTION, payload: {carID} });
+export const createDeleteDoneVoterAction = carID => ({ type: DELETE_VOTER_DONE_ACTION, payload: {carID} });
 
-export const deleteCar = carID => {
+export const deleteVoter = carID => {
     return dispatch => {
-        dispatch(createDeleteRequestCarAction(carID));
-        deleteCarInDB(carID).then(() => dispatch(refreshCars()));
+        dispatch(createDeleteRequestVoterAction(carID));
+        deleteVoterInDB(carID).then(() => dispatch(refreshVoters()));
     };
 }
 
-export const createSortCarAction = col => ({ type: SORT_CAR, payload: {col} });
+export const createSortVoterAction = col => ({ type: SORT_VOTER, payload: {col} });
 
-export const createSaveRequestCarAction = car => ({ type: SAVE_CAR_REQUEST_ACTION, payload: {car} });
+export const createSaveRequestVoterAction = voter => ({ type: SAVE_VOTER_REQUEST_ACTION, payload: {voter} });
 
-export const createSaveDoneCarAction = car => ({ type: SAVE_CAR_DONE_ACTION, payload: {car} });
+export const createSaveDoneVoterAction = voter => ({ type: SAVE_VOTER_DONE_ACTION, payload: {voter} });
 
-export const saveCar = car => {
+export const saveVoter = voter => {
     return dispatch => {
-        dispatch(createSaveRequestCarAction(car));
-        replace(car).then(() => dispatch(refreshCars()));
+        dispatch(createSaveRequestVoterAction(voter));
+        replace(voter).then(() => dispatch(refreshVoters()));
     };
 };

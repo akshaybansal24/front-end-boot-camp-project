@@ -19,7 +19,7 @@ const voterReducer = (voterd = voterList, action) => {
         case REFRESH_VOTERS_DONE_ACTION:
             return action.payload.voters;
         default:
-            return voters;
+            return voterList;
     }
 }
 

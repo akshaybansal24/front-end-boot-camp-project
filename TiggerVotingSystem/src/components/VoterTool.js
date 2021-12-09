@@ -13,5 +13,5 @@ export const VoterTool = () =>{
 };
 
 VoterTool.defaultProps = {
-    cars: [],
+    voters: [],
 }

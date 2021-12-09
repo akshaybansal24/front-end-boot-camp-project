@@ -1,7 +1,7 @@
 
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 //import { HelloWorld } from './components/HelloWorld';
-import { CarTool } from './CarTool';
+import { VoterTool } from './VoterTool';
 //import { ColorToolStoreProvider } from '../contexts/colorToolStoreContext';
 import { ColorTool } from './ColorTool';
 //import { CarToolStoreProvider } from '../contexts/carToolStoreContext';
@@ -10,7 +10,7 @@ import { ToolFooter } from './ToolFooter';
 import { Layout } from './Layout';
 
 import { Provider } from 'react-redux';
-import { VoterToolStore } from '../stores/carToolStore';
+import { voterToolStore } from '../stores/voterToolStore';
 import { colorToolStore } from '../stores/colorToolStore';
 
 // import { calcToolStore } from '../stores/calcToolStore';
@@ -47,7 +47,7 @@ export const App = () =>{
                 <ul className="menu">
                 <li className="menu-item"><Link to="/">Home</Link></li>
                 <li className="menu-item"><Link to="/color-tool">Color Tool</Link></li>
-                <li className="menu-item"><Link to="/car-tool">Voter Tool</Link></li>
+                <li className="menu-item"><Link to="/voter-tool">Voter Tool</Link></li>
                 <li className="menu-item"><Link to="/calc-tool">Calc Tool</Link></li>
                 </ul>
             </nav>
@@ -61,8 +61,8 @@ export const App = () =>{
                     </Provider>
                 </Route>
                 <Route path="/voter-tool">
-                  <Provider store={VoterToolStore} >
-                    <CarTool />
+                  <Provider store={voterToolStore} >
+                    <VoterTool />
                   </Provider>
                 </Route>
                 {/* <Route path="/calc-tool">
