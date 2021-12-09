@@ -61,3 +61,13 @@ label {
 table, th, td {
   border: 1px solid black;
 }
+
+.btn {
+	border: 1.5px solid black;
+	border-radius: 3px;
+	background-color: lightgray;
+	padding: 5px;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+}

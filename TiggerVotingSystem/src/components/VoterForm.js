@@ -1,4 +1,5 @@
 import { useForm } from "../hooks/useForm";
+import { useHistory } from "react-router-dom";
 
 export const VoterForm = props => {
 
@@ -12,11 +13,17 @@ export const VoterForm = props => {
         phone: '',
     });
 
+    const history = useHistory();
+    const routeToHome = () => {
+        history.push("/");
+    }
     const submitVoter = () => {
 
         props.onSubmitVoter({ ...voterForm });
 
         resetVoterForm();
+        routeToHome();
+
     }
     return (
         <form>

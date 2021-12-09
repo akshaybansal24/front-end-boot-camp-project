@@ -9,6 +9,36 @@
       "birthdate": "24 April 1993",
       "email": "akshay_bansal@intuit.com",
       "phone": "123-456-7890"
+    },
+    {
+      "firstName": "Ebony",
+      "lastName": "Hargro",
+      "address": "123 ABC Street",
+      "city": "Mountain View",
+      "birthdate": "01/16/1996",
+      "email": "ebony@intuit.com",
+      "phone": "1231231233",
+      "id": 2
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "address": "",
+      "city": "",
+      "birthdate": "",
+      "email": "",
+      "phone": "",
+      "id": 3
+    },
+    {
+      "firstName": "Bob",
+      "lastName": "Jones",
+      "address": "000 Street Lane",
+      "city": "Toronto",
+      "birthdate": "5/30/1995",
+      "email": "bob@jones.com",
+      "phone": "0000000000",
+      "id": 4
     }
   ],
   "elections": [
@@ -29,10 +59,10 @@
           "yes": 1,
           "no": 1
         }
-
       ],
       "voters": [
-        1, 2
+        1,
+        2
       ]
     },
     {
@@ -54,7 +84,8 @@
         }
       ],
       "voters": [
-        1, 2
+        1,
+        2
       ]
     }
   ],

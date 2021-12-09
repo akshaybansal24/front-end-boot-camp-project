@@ -36,9 +36,9 @@ export const App = () =>{
             <main>
                 <Route path="/" exact>
                     <h1>Home Page</h1>
-                    <Link to="/voter-form-tool"> Register Voter </Link>
+                    <Link to="/voter-form-tool" className="btn btn-primary" > Register Voter </Link>
                     <br/>
-                    <Link to="/voter-tool"> Display Registered Voters </Link>
+                    <Link to="/voter-tool" className="btn btn-primary" > Display Registered Voters </Link>
                 </Route>
                 <Route path="/voter-form-tool">
                   <Provider store={voterToolStore} >
