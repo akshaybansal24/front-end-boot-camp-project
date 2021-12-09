@@ -10,7 +10,7 @@ import { ToolFooter } from './ToolFooter';
 import { Layout } from './Layout';
 
 import { Provider } from 'react-redux';
-import { carToolStore } from '../stores/carToolStore';
+import { VoterToolStore } from '../stores/carToolStore';
 import { colorToolStore } from '../stores/colorToolStore';
 
 // import { calcToolStore } from '../stores/calcToolStore';
@@ -47,7 +47,7 @@ export const App = () =>{
                 <ul className="menu">
                 <li className="menu-item"><Link to="/">Home</Link></li>
                 <li className="menu-item"><Link to="/color-tool">Color Tool</Link></li>
-                <li className="menu-item"><Link to="/car-tool">Car Tool</Link></li>
+                <li className="menu-item"><Link to="/car-tool">Voter Tool</Link></li>
                 <li className="menu-item"><Link to="/calc-tool">Calc Tool</Link></li>
                 </ul>
             </nav>
@@ -60,8 +60,8 @@ export const App = () =>{
                       <ColorTool />
                     </Provider>
                 </Route>
-                <Route path="/car-tool">
-                  <Provider store={carToolStore} >
+                <Route path="/voter-tool">
+                  <Provider store={VoterToolStore} >
                     <CarTool />
                   </Provider>
                 </Route>
