@@ -2,7 +2,7 @@ import { useForm } from "../hooks/useForm";
 
 export const VoterForm = props => {
 
-    const [VoterForm, change, resetVoterForm] = useForm({
+    const [ voterForm, change, resetVoterForm] = useForm({
         make: '',
         model: '',
         year: 1990,
@@ -12,35 +12,43 @@ export const VoterForm = props => {
 
     const submitVoter = () => {
 
-        props.onSubmitVoter({ ...VoterForm });
+        props.onSubmitVoter({ ...voterForm });
 
         resetVoterForm();
     }
     return (
         <form>
             <label>
-                MAKE:
-                    <input type="text" name="make" value={VoterForm.make} onChange={change} ></input>
+                FIRST NAME:
+                    <input type="text" name="firstName" value={voterForm.firstName} onChange={change} ></input>
+            </label>
+            <label>
+                LAST NAME:
+                    <input type="text" name="lastName" value={voterForm.lastName} onChange={change} ></input>
             </label>
             &emsp;
                 <label>
-                MODEL:
-                    <input type="text" name="model" value={VoterForm.model} onChange={change} ></input>
+                ADDRESS:
+                    <input type="text" name="address" value={voterForm.address} onChange={change} ></input>
             </label>
             &emsp;
                 <label>
-                YEAR:
-                    <input type="number" name="year" value={VoterForm.year} onChange={change} ></input>
+                CITY:
+                    <input type="text" name="city" value={voterForm.city} onChange={change} ></input>
             </label>
             &emsp;
                 <label>
-                COLOR:
-                    <input type="text" name="color" value={VoterForm.color} onChange={change} ></input>
+                BIRTHDATE:
+                    <input type="text" name="birthdate" value={voterForm.birthdate} onChange={change} ></input>
             </label>
             &emsp;
                 <label>
-                PRICE:
-                    <input type="number" name="price" value={VoterForm.price} onChange={change} ></input>
+                EMAIL:
+                    <input type="text" name="email" value={voterForm.email} onChange={change} ></input>
+            </label>
+            <label>
+                PHONE:
+                    <input type="text" name="phone" value={voterForm.phone} onChange={change} ></input>
             </label>
             <button type="button" onClick={submitVoter} >{props.buttonText}</button>
         </form>
