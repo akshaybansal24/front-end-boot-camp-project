@@ -1,9 +1,9 @@
-import { CarViewRow } from "./CarViewRow.js";
-import { CarEditRow } from "./CarEditRow";
+import { VoterViewRow } from "./VoterViewRow.js";
+import { VoterEditRow } from "./VoterEditRow";
 
-//import { CarEditRow } from "./CarEditRowHooks";
+//import { voterEditRow } from "./voterEditRowHooks";
 
-export const CarTable = props => {
+export const VoterTable = props => {
     return (
         <table>
             <thead>
@@ -18,14 +18,14 @@ export const CarTable = props => {
                 </tr>
             </thead>
             <tbody>
-                { props.cars.map(car => car.id !== props.editCarID ?
-                     <CarViewRow key={car.id} car={car} deleteCar={props.onDeleteCar} editCar={props.onEditCarID} /> : 
-                     <CarEditRow key={car.id} car={car} cancel={props.onEditCarID} save={props.onClickSave} />) }
+                { props.voters.map(voter => voter.id !== props.editvoterID ?
+                     <VoterViewRow key={voter.id} voter={voter} deletevoter={props.onDeletevoter} editvoter={props.onEditvoterID} /> : 
+                     <VoterEditRow key={voter.id} voter={voter} cancel={props.onEditVoterID} save={props.onClickSave} />) }
             </tbody>
         </table>
     );
 };
 
-CarTable.defaultProps = {
+VoterTable.defaultProps = {
     cars: [],
 }
