@@ -4,19 +4,25 @@ export const ElectionList = props => {
     return(
         <section>
             <h1 style={{fontSize: "1.5rem"}}>List of Elections</h1>
-            <ul>
-                { isEmpty(props.elections)
-                    ? <li>No Elections</li> :
+            <table>
+            <thead>
+
+            </thead>
+            <tbody>
+            { isEmpty(props.elections)
+                    ? <td>No Elections</td> :
                     props.elections.map(election => {
                             return(
-                                <li key={election.id}>{election.name}&emsp;{election.year}&emsp;
+                                <td key={election.id}>{election.name}&emsp;{election.year}&emsp;
                                     <button type="button" onClick={() => props.onViewElectionResults(election)}>View Results</button>
-                                </li>
+                                </td>
                             );
                         }
                     
                     )}
-            </ul>
+            </tbody>
+                
+            </table>
         </section>
     );
 };
