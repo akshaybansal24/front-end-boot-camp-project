@@ -42,14 +42,14 @@ export const addVoter = voter => {
 
 export const createEditVoterAction = voter => ({ type: EDIT_VOTER, payload: {voter} });
 
-export const createDeleteRequestVoterAction = carID => ({ type: DELETE_VOTER_REQUEST_ACTION, payload: {carID} });
+export const createDeleteRequestVoterAction = voterID => ({ type: DELETE_VOTER_REQUEST_ACTION, payload: {voterID} });
 
-export const createDeleteDoneVoterAction = carID => ({ type: DELETE_VOTER_DONE_ACTION, payload: {carID} });
+export const createDeleteDoneVoterAction = voterID => ({ type: DELETE_VOTER_DONE_ACTION, payload: {voterID} });
 
-export const deleteVoter = carID => {
+export const deleteVoter = voterID => {
     return dispatch => {
-        dispatch(createDeleteRequestVoterAction(carID));
-        deleteVoterInDB(carID).then(() => dispatch(refreshVoters()));
+        dispatch(createDeleteRequestVoterAction(voterID));
+        deleteVoterInDB(voterID).then(() => dispatch(refreshVoters()));
     };
 }
 

@@ -3,11 +3,13 @@ export const VoterViewRow = props => {
     return (
         <tr key={props.voter.id}>
             <td>{props.voter.id}</td>
-            <td>{props.voter.make}</td>
-            <td>{props.voter.model}</td>
-            <td>{props.voter.year}</td>
-            <td>{props.voter.color}</td>
-            <td>{props.voter.price}</td>
+            <td>{props.voter.firstName}</td>
+            <td>{props.voter.lastName}</td>
+            <td>{props.voter.address}</td>
+            <td>{props.voter.city}</td>
+            <td>{props.voter.birthdate}</td>
+            <td>{props.voter.email}</td>
+            <td>{props.voter.phone}</td>
             <td>
                 <button type="button" onClick={() => props.editVoter(props.voter.id)}>Edit</button>
                 <button type="button" onClick={() => props.deleteVoter(props.voter.id)}>Delete</button>

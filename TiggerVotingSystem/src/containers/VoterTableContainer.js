@@ -4,6 +4,8 @@ import { useVoterToolStore } from '../hooks/useVoterToolStore';
 
 export const VoterTableContainer = () => {
     const voterToolStore = useVoterToolStore();
+    console.log("From Table Container");
+    console.log(voterToolStore.voters);
         return(
         <VoterTable voters={voterToolStore.voters} 
                 editVoterID={voterToolStore.editVoterId}

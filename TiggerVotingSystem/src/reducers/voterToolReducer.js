@@ -8,18 +8,15 @@ import {
     REFRESH_VOTERS_DONE_ACTION
 } from '../actions/voterToolActions';
 
-const voterList = [
-    {id: 1, make: 'Lexus', model: 'NX 300', year: 2021, color: 'Atomic Silver', price: 53000, isEditable: false},
-    {id: 2, make: 'Tesla', model: 'Model 3', year: 2021, color: 'Red', price: 72000, isEditable: false}
-  ];
 
-
-const voterReducer = (voterd = voterList, action) => {
+const voterReducer = (voters = [], action) => {
     switch(action.type){
         case REFRESH_VOTERS_DONE_ACTION:
+            console.log("Reached Refresh")
+            console.log(action.payload.voters)
             return action.payload.voters;
         default:
-            return voterList;
+            return voters;
     }
 }
 
