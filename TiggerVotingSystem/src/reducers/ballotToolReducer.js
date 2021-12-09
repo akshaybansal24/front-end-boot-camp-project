@@ -1,7 +1,7 @@
 import { VOTER_VERIFY_START, VOTER_VERIFY_END, VOTER_SUBMISSION_START, VOTER_SUBMISSION_END } from '../actions/ballotToolActions';
 import { combineReducers } from "redux";
 
-const ballotToolReducer = (state, action) => {
+const ballotToolReducer = (state= {}, action) => {
     if (action.type=== VOTER_VERIFY_START) {
 
 
@@ -16,7 +16,7 @@ const ballotToolReducer = (state, action) => {
 
     }
 
-    return state
+    return state;
 
 };
 
