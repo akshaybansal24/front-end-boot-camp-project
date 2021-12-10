@@ -1,43 +1,35 @@
 import  {useDispatch, useSelector } from 'react-redux';
+import { useEffect, useMemo } from 'react';
 import { bindActionCreators } from 'redux';
 import {
-    createAddAction,
-    createSubtractAction,
-    createMultiplyAction,
-    createDivideAction,
-    createClearAction,
-    createDeleteHistoryAction
-} from '../actions/calcToolActions';
-import { calcToolStoreReducer, operationCountReducer} from '../reducers/calcToolReducer';
+    createRefreshElectionAction,
+    createVoteCastAction,
+    createVoterVerifyAction,
+    createSelectElectionAction
+} from '../actions/ballotToolActions';
+import { useState } from 'react';
 
-export const useCalcToolStore = () => {
+export const useBallotToolStore = () => {
 
-    const result = useSelector(calcToolStoreReducer);
+    const elections = useSelector(state => state.ballotState.elections);
+    const ballot = useSelector(state => state.ballotState.ballot);
 
-    const history = useSelector(state => state.history);
+    const dispatch = useDispatch();
 
-    const operationCount = useSelector(operationCountReducer);
+    const boundActions = useMemo(() => bindActionCreators({
+        castVote: createVoteCastAction,
+        verifyVoter: createVoterVerifyAction,
+        selectElection: createSelectElectionAction,
+        refreshElections: createRefreshElectionAction
+    }, dispatch), [dispatch]);
 
-    console.log(operationCount);
-
-    const errorMessage = useSelector(state => state.errorMessage);
-
-    const dipatch = useDispatch();
-
-    const boundActions = bindActionCreators({
-        add: createAddAction,
-        subtract: createSubtractAction,
-        multiply: createMultiplyAction,
-        divide: createDivideAction,
-        clear: createClearAction,
-        deleteHistory: createDeleteHistoryAction
-    }, dipatch);
+    useEffect(() => {
+        boundActions.refreshElections();
+    }, [boundActions]);
 
     return {
-        result,
-        history,
-        operationCount,
-        errorMessage,
+        elections,
+        ballot,
         ...boundActions
     };
 };

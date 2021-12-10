@@ -14,6 +14,17 @@ export const all = async() => {
     }
 };
 
+export const getOneVoter = async(voterId) => {
+    try{
+        const res = await fetch('http://localhost:3060/voters/' + voterId)
+        const voter = await res.json();
+        return voter;
+    }
+    catch(error){
+        console.log(error);
+    }
+};
+
 export const append = async(voter) => {
     const res = await fetch('http://localhost:3060/voters', {
           method: 'POST',

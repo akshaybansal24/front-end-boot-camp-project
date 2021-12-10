@@ -1,7 +1,7 @@
 import { BallotList } from './BallotList.js';
 import { VoterValidation } from './VoterValidation';
 
-import { useElectionToolStore } from '../hooks/useElectionToolStore';
+import { useBallotToolStore } from '../hooks/useBallotToolStore';
 
 export const BallotTool = () =>{
 
@@ -12,11 +12,11 @@ export const BallotTool = () =>{
     }
     
 
-    const store = useElectionToolStore();
+    const store = useBallotToolStore();
     return(
         <>
             <BallotList elections={store.elections} onVote={onVote}/>
-            <VoterValidation election={store.elections} voter={store.voters}/>
+            <VoterValidation election={store.elections} voter={store.election}/>
         </>
     )
 };

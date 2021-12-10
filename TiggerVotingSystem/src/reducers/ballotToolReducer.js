@@ -1,25 +1,36 @@
-import { VOTER_VERIFY_START, VOTER_VERIFY_END, VOTER_SUBMISSION_START, VOTER_SUBMISSION_END } from '../actions/ballotToolActions';
+import { SELECT_ELECTION_ACTION, SELECT_VOTER_ACTION, VOTER_VERIFY_ACTION, VOTER_VERIFY_DONE_ACTION, REFRESH_ELECTION_DONE_ACTION } from '../actions/ballotToolActions';
 import { combineReducers } from "redux";
 
-const ballotToolReducer = (state= {}, action) => {
-    if (action.type=== VOTER_VERIFY_START) {
 
-
+const electionsReducer = (elections = [], action) => {
+    if(action.type === REFRESH_ELECTION_DONE_ACTION){
+        return action.payload.elections;
     }
-    if (action.type=== VOTER_VERIFY_END) {
-
-    }
-    if (action.type=== VOTER_SUBMISSION_START) {
-
-    }
-    if (action.type=== VOTER_SUBMISSION_END) {
-
-    }
-
-    return state;
-
+    return elections;
 };
 
+const ballotReducer = (ballot = {
+    election:{},
+    voter: {},
+    errorMessage: ''
+}, action ) => {
+    if(action.type === SELECT_ELECTION_ACTION){
+        return {...ballot, election: action.payload.election};
+    }
+    if(action.type === VOTER_VERIFY_DONE_ACTION){
+        if(Object.keys(action.payload.voter).length === 0){
+            return {...ballot, errorMessage: 'The voter does not exist'};
+        }
+        else if(ballot.election.votes.includes(action.payload.voter.id)){
+            return {...ballot, errorMessage: 'The voter has already voted in selected election'};
+        }else{
+            return {...ballot, voter: action.payload.voter}
+        }
+    }
+    return ballot;
+}
+
 export const ballotToolReducers = combineReducers({
-    ballot: ballotToolReducer
+    ballot: ballotReducer,
+    elections: electionsReducer
 });
