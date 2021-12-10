@@ -98,7 +98,7 @@
 
 .container > footer {
     grid-area: footer;
-    background-color: navy;
+    background-color: black;
     color: orange;
 
     padding-top: 8px;
