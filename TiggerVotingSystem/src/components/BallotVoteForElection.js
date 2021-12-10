@@ -18,7 +18,9 @@ export const BallotVoteForElection = ({selectedVoterFromId, selectedElection, is
     // isValidatedForVoting =true;
 
     const handleOnChange = (position) => {
-        const updatedCheckedState = checkedState.map((item, index) => index === position ? !item : item);
+
+        console.log(checkedState);
+        const updatedCheckedState = checkedState.map((booleanValue, index) => index === position ? !booleanValue : booleanValue);
 
         setCheckedState(updatedCheckedState);
         console.log(checkedState);
@@ -33,12 +35,22 @@ export const BallotVoteForElection = ({selectedVoterFromId, selectedElection, is
                 question.no++;
             }
         })
+
         submitVote(electionToBeSubmitted)
+        setFinisedVoting(true);
     };
 
     const [checkedState, setCheckedState] = useState(
         new Array(selectedElection?.questions?.length).fill(false)
     );
+
+    const [fishedVoting, setFinisedVoting] = useState(false);
+    console.log(checkedState);
+
+
+    if(fishedVoting) {
+        return "\n\nAmazing you're done Voting!";
+    }
 
     return isValidatedForVoting && selectedElection ? (
         <div>
@@ -49,13 +61,13 @@ export const BallotVoteForElection = ({selectedVoterFromId, selectedElection, is
                 </tr>
             </thead>
             <tbody>
-                {selectedElection.questions.map((question, index) => {
+                {selectedElection.questions.map(({question}, index) => {
                     return (
-                        <tr key={question.id} >
-                            <td key={1}>
-                                {question.question}
+                        <tr>
+                            <td key={question.id}>  
+                                {question}  
                             </td>
-                            <td key={2}>
+                            <td>  
                                 <input type="checkbox" id={question.id} onChange={() => handleOnChange(index)} checked={checkedState[index]}/>
                             </td>
                         </tr>
