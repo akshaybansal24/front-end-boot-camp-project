@@ -15,7 +15,8 @@ export const BallotTool = () =>{
     return(
         <>
             <BallotList elections={store.elections} onVote={onVote}/>
-            <BallotVoterValidation election={store.elections} voter={store.election}/>
+            {store.ballot.displayVoterForm ? 
+                <BallotVoterValidation election={store.elections} voter={store.election}/> : <div></div>}
         </>
     )
 };
