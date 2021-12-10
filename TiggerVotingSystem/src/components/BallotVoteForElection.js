@@ -20,18 +20,18 @@ export const BallotVoteForElection = ({selectedVoterFromId, selectedElection, is
             <table>
             <thead>
                 <tr>
-                    <th colspan="2">{selectedElection.name} - {selectedElection.year}</th>
+                    <th colSpan="2">{selectedElection.name} - {selectedElection.year}</th>
                 </tr>
             </thead>
             <tbody>
                 {selectedElection.questions.map(({question}) => {
                     return (
                         <tr>
-                            <td>  
+                            <td key={question.id}>  
                                 {question}  
                             </td>
                             <td>  
-                                <input type="checkbox" id={question}/>
+                                <input key={question.question} type="checkbox" id={question}/>
                             </td>
                         </tr>
                     )})

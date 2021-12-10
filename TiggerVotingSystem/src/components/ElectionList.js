@@ -14,7 +14,8 @@ export const ElectionList = props => {
             </thead>
             <tbody>
             { isEmpty(props.elections)
-                    ? <tr>No Elections</tr> :
+                    ? <tr>
+                    <td> No Elections </td></tr> :
                     props.elections.map(election => {
                             return(
                                 <tr key={election.id}>
