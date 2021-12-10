@@ -13,8 +13,6 @@ import { BallotTool } from './BallotTool';
 
 
 import { Provider } from 'react-redux';
-import { voterToolStore } from '../stores/voterToolStore';
-import { electionToolStore } from "../stores/electionToolStore";
 import { tiggerVoterStore } from "../stores/tiggerVoterStore";
 
 

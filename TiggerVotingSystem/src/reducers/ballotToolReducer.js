@@ -1,4 +1,4 @@
-import { SELECT_ELECTION_ACTION, SELECT_VOTER_ACTION, VOTER_VERIFY_ACTION, VOTER_VERIFY_DONE_ACTION, REFRESH_ELECTION_DONE_ACTION } from '../actions/ballotToolActions';
+import { SELECT_ELECTION_ACTION, VOTER_VERIFY_DONE_ACTION, REFRESH_ELECTION_DONE_ACTION } from '../actions/ballotToolActions';
 import { combineReducers } from "redux";
 
 

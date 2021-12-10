@@ -1,5 +1,3 @@
-const isEmpty = arr => !Array.isArray(arr) || arr.length === 0;
-
 export const BallotList = props => {
     return (
         <section>
@@ -20,7 +18,7 @@ export const BallotList = props => {
                             <td>{election.year}</td>
                             <td>
                                 {props.selectedElectionId === election.id ?
-                                    <>Curerntly Selected</> :
+                                    <>Currently Selected</> :
                                     <button type="button" onClick={() => props.onVote(election)} >Vote</button>
                                 }
                             </td>

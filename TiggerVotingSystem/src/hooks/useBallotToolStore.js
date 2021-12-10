@@ -7,7 +7,6 @@ import {
     createVoterVerifyAction,
     createSelectElectionAction
 } from '../actions/ballotToolActions';
-import { useState } from 'react';
 
 export const useBallotToolStore = () => {
 
