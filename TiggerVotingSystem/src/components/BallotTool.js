@@ -25,9 +25,10 @@ export const BallotTool = () =>{
                     voter={store.ballot.voter}
                     onSubmitVoterId = {store.verifyVoter}/> : <div></div>}
             <BallotVoteForElection 
-                selectedVoterFromId={store?.ballot?.voter} 
-                selectedElection={selectedElectionIdOnState && store.elections[selectedElectionIdOnState]} 
-                isValidatedForVoting={store?.ballot?.displayVoterForm}
+                selectedVoterFromId={store?.ballot?.voter.id} 
+                selectedElection={store.ballot.election} 
+                isValidatedForVoting={store?.ballot?.displayBallotForm}
+                submitVote = {store.castVote}
             />
         </>
     )

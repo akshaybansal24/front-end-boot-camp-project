@@ -1,21 +1,21 @@
 import {createVoteCastAction} from '../actions/ballotToolActions';
 import {useState} from 'react';
 
-export const BallotVoteForElection = ({selectedVoterFromId, selectedElection, isValidatedForVoting}) => {
+export const BallotVoteForElection = ({selectedVoterFromId, selectedElection, isValidatedForVoting, submitVote}) => {
     // selectedVoterFromId = 1;
-    selectedElection = {
-        id: 7,
-        name: "Weather Today",
-        question: "",
-        questions: [
-         {question: 'sunny', id: 1, yes: 0, no: 0},
-         {question: 'rainy', id: 2, yes: 0, no: 0},
-         {question: 'snow', id: 3, yes: 0, no: 0},
-         {question: 'overcast', id: 4, yes: 0, no: 0}],
-         year: 2032,
-         voter: []
-        };
-    isValidatedForVoting =true;
+    // selectedElection = {
+    //     id: 7,
+    //     name: "Weather Today",
+    //     question: "",
+    //     questions: [
+    //      {question: 'sunny', id: 1, yes: 0, no: 0},
+    //      {question: 'rainy', id: 2, yes: 0, no: 0},
+    //      {question: 'snow', id: 3, yes: 0, no: 0},
+    //      {question: 'overcast', id: 4, yes: 0, no: 0}],
+    //      year: 2032,
+    //      voter: []
+    //     };
+    // isValidatedForVoting =true;
 
     const handleOnChange = (position) => {
         const updatedCheckedState = checkedState.map((item, index) => index === position ? !item : item);
@@ -24,19 +24,20 @@ export const BallotVoteForElection = ({selectedVoterFromId, selectedElection, is
         console.log(checkedState);
     }
     const submitResponse = () => {
-        selectedElection.voter.push(selectedVoterFromId);
-        selectedElection.questions.forEach((question, index) => {
+        let electionToBeSubmitted = selectedElection;
+        electionToBeSubmitted.voters.push(selectedVoterFromId);
+        electionToBeSubmitted.questions.forEach((question, index) => {
             if(checkedState[index]){
                 question.yes++;
             } else {
                 question.no++;
             }
         })
-        createVoteCastAction(selectedElection)
+        submitVote(electionToBeSubmitted)
     };
 
     const [checkedState, setCheckedState] = useState(
-        new Array(selectedElection.questions.length).fill(false)
+        new Array(selectedElection?.questions?.length).fill(false)
     );
 
     return isValidatedForVoting && selectedElection ? (
