@@ -8,12 +8,9 @@ export const BallotTool = () =>{
 
     const onVote = selectedElection => {
         store.selectElection(selectedElection);
-        console.log("From Inside method = " + JSON.stringify(store.ballot));
     }
     
-    console.log("From Outside method = " + JSON.stringify(store.ballot));
-
-    const selectedElectionIdOnState = store.ballot.election ? store.ballot.election.id : -1;
+    const selectedElectionIdOnState = store.ballot.election ? store.ballot.election.id : null;
     return(
         <>
             <BallotList 
@@ -27,7 +24,11 @@ export const BallotTool = () =>{
                     election={store.ballot.election} 
                     voter={store.ballot.voter}
                     onSubmitVoterId = {store.verifyVoter}/> : <div></div>}
-            <BallotVoteForElection election={store.elections} error={true}/>
+            <BallotVoteForElection 
+                selectedVoterFromId={store?.ballot?.voter} 
+                selectedElection={selectedElectionIdOnState && store.elections[selectedElectionIdOnState]} 
+                isValidatedForVoting={store?.ballot?.displayVoterForm}
+            />
         </>
     )
 };

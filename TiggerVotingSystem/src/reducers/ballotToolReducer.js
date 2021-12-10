@@ -21,18 +21,21 @@ const ballotReducer = (ballot = {
     }
     if(action.type === VOTER_VERIFY_DONE_ACTION){
         console.log("Voter verify done reducer" + JSON.stringify(action));
-        if(Object.keys(action.payload.voter).length === 0){
+        if(Object.keys(action?.payload?.voter).length === 0){
             return {...ballot, errorMessage: 'The voter does not exist'};
         }
-        else if(ballot.election.voters.includes(action.payload.voter.id)){
-            return {...ballot, errorMessage: 'The voter has already voted in selected election'};
+        else if(ballot?.election?.voters.includes(action.payload.voter.id)){
+            return {
+                ...ballot, 
+                errorMessage: 'The voter has already voted in selected election',
+            };
         }else{
             return {
                 ...ballot, 
                 voter: action.payload.voter, 
                 displayVoterForm: false,
                 displayBallotForm: true,
-                errorMessage: ''
+                errorMessage: '',
             };
         }
     }

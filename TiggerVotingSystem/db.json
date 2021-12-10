@@ -39,6 +39,16 @@
       "email": "bob@jones.com",
       "phone": "0000000000",
       "id": 4
+    },
+    {
+      "firstName": "bob",
+      "lastName": "the builder",
+      "address": "sunnydale",
+      "city": "cityedit",
+      "birthdate": "10/10/1010",
+      "email": "bob@thebuilder.com",
+      "phone": "",
+      "id": 5
     }
   ],
   "elections": [
