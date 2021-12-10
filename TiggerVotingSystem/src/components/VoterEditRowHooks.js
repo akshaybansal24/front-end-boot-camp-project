@@ -43,8 +43,8 @@ export class VoterEditRow extends Component {
                 <td><input type="text" name="color" value={this.state.color} onChange={this.change} ></input></td>
                 <td><input type="number" name="price" value={this.state.price} onChange={this.change} ></input></td>
                 <td>
-                    <button type="button" onClick={this.saveVoter()}>Save</button>
-                    <button type="button" onClick={() => this.props.cancel(-1)}>Cancel</button>
+                    <button className="btn" type="button" onClick={this.saveVoter()}>Save</button>
+                    <button className="btn" type="button" onClick={() => this.props.cancel(-1)}>Cancel</button>
                 </td>
             </tr>
         );

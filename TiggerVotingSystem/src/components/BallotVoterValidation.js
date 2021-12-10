@@ -21,7 +21,7 @@ export const BallotVoterValidation = props => {
                 <input type="number" name="voterId" value={voterID} onChange={onChangeVoterID}/>
             </label>
             <label>{props.errorMessage}</label>
-            <button type="button" onClick={submitVoterID}> Submit Voter ID </button>
+            <button className="btn" type="button" onClick={submitVoterID}> Submit Voter ID </button>
         </form>
     )
 }

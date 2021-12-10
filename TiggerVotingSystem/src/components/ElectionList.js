@@ -21,7 +21,7 @@ export const ElectionList = props => {
                                     <td>{election.name}</td>
                                     <td>{election.year}</td>
                                     <td>
-                                        <button type="button" onClick={() => props.onViewElectionResults(election)}>View Results</button>
+                                        <button className="btn" type="button" onClick={() => props.onViewElectionResults(election)}>View Results</button>
                                     </td>
                                 </tr>
                                 // <td >{election.name}&emsp;{election.year}&emsp;

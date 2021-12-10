@@ -62,7 +62,7 @@ export const VoterForm = props => {
                     <input type="text" name="phone" value={voterForm.phone} onChange={change} ></input>
             </label>
             &emsp;
-            <button type="button" onClick={submitVoter} >{props.buttonText}</button>
+            <button className="btn" type="button" onClick={submitVoter} >{props.buttonText}</button>
         </form>
     );
 };

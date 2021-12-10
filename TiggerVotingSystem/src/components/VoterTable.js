@@ -35,14 +35,14 @@ export const VoterTable = props => {
         <table>
             <thead>
                 <tr>
-                    <th >ID <button type="button" onClick={() => props.onClickSort("id")}>{props.sortButtonText}</button></th>
-                    <th >First Name <button type="button" onClick={() => props.onClickSort("firstName")}>{props.sortButtonText}</button></th>
-                    <th >Last Name <button type="button" onClick={() => props.onClickSort("lastName")}>{props.sortButtonText}</button></th>
-                    <th >Address <button type="button" onClick={() => props.onClickSort("address")}>{props.sortButtonText}</button></th>
-                    <th >City <button type="button" onClick={() => props.onClickSort("city")}>{props.sortButtonText}</button></th>
-                    <th >Birthdate <button type="button" onClick={() => props.onClickSort("birthdate")}>{props.sortButtonText}</button></th>
-                    <th >Email <button type="button" onClick={() => props.onClickSort("email")}>{props.sortButtonText}</button></th>
-                    <th >Phone <button type="button" onClick={() => props.onClickSort("phone")}>{props.sortButtonText}</button></th>
+                    <th >ID <button className="btn" type="button" onClick={() => props.onClickSort("id")}>{props.sortButtonText}</button></th>
+                    <th >First Name <button className="btn" type="button" onClick={() => props.onClickSort("firstName")}>{props.sortButtonText}</button></th>
+                    <th >Last Name <button className="btn" type="button" onClick={() => props.onClickSort("lastName")}>{props.sortButtonText}</button></th>
+                    <th >Address <button className="btn" type="button" onClick={() => props.onClickSort("address")}>{props.sortButtonText}</button></th>
+                    <th >City <button className="btn" type="button" onClick={() => props.onClickSort("city")}>{props.sortButtonText}</button></th>
+                    <th >Birthdate <button className="btn" type="button" onClick={() => props.onClickSort("birthdate")}>{props.sortButtonText}</button></th>
+                    <th >Email <button className="btn" type="button" onClick={() => props.onClickSort("email")}>{props.sortButtonText}</button></th>
+                    <th >Phone <button className="btn" type="button" onClick={() => props.onClickSort("phone")}>{props.sortButtonText}</button></th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -52,7 +52,7 @@ export const VoterTable = props => {
                      <VoterEditRow key={voter.id} voter={voter} cancel={props.onEditVoterID} save={props.onClickSave} />) }
             </tbody>
         </table>
-        <input type="button" value="Delete Selected Rows" onClick={deleteMultipleVoters} />  
+        <input className="btn" type="button" value="Delete Selected Rows" onClick={deleteMultipleVoters} />  
         </>
     );
 };

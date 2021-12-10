@@ -53,12 +53,12 @@ export const ElectionForm = props => {
                         Question:
                         <textarea rows="2" columns="40" name="question" value={electionForm.question} onChange={change}></textarea>
                     </label>
-                    <button type="button" onClick={onSubmitAddQuestion} >Add Question</button>
+                    <button className="btn" type="button" onClick={onSubmitAddQuestion} >Add Question</button>
                 </section>
                 
                 
 
-                <button type="button" onClick={submitElection} >{props.addElectionButtonText}</button>
+                <button className="btn" type="button" onClick={submitElection} >{props.addElectionButtonText}</button>
             </form>
         </section>
     );

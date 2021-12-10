@@ -23,7 +23,7 @@ export const App = () =>{
     return (
         <Router path="/">
           <Layout>
-              <ToolHeader headerText="Tigger Voting Tool" message="Life is not about how fast you run on how high you climb but how well you bounce" />
+              <ToolHeader headerText="Tigger Voting Tool" message="Life is not about how fast you run or how high you climb, but how well you bounce!" />
               <nav>
                 <ul className="menu">
                 <li className="menu-item"><Link to="/">Home</Link></li>
@@ -61,7 +61,7 @@ export const App = () =>{
                     </Provider>
                 </Route>
             </main>
-            <aside>Sidebar</aside>
+            <aside></aside>
             <ToolFooter footerText="Tigger Voting System" />
           </Layout>
         </Router>

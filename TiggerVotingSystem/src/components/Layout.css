@@ -22,7 +22,7 @@
 
 .container > header {
     grid-area: header;
-    background-color: navy;
+    background-color: black;
     color: orange;
 
     padding-left: 20px;
@@ -44,7 +44,7 @@
 
 .container > nav {
     grid-area: menu;
-    background-color: lightgray;
+    background-color: white;
     padding-left: 10px;
     display: flex;
     align-items: center;
@@ -64,10 +64,14 @@
 
 .menu-item > a,
 .menu-item > a:visited,
-.menu-item > a:active,
-.menu-item > a:hover  {
+.menu-item > a:active  {
     color: black;
     
+}
+
+.menu-item > a:hover {
+    text-decoration: underline;
+    color: orange;
 }
 
 .menu-item > a,
@@ -82,7 +86,7 @@
 
 .container > main {
     grid-area: content;
-    background-color: white;
+    background-color: #fff3a0;
     padding: 10px;
 }
 
@@ -104,4 +108,8 @@
     justify-content: center;
 
     font-size: 0.8rem;
+}
+
+button:hover {
+    color: orange;
 }

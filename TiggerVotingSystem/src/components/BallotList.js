@@ -19,7 +19,7 @@ export const BallotList = props => {
                             <td>
                                 {props.selectedElectionId === election.id ?
                                     <>Currently Selected</> :
-                                    <button type="button" onClick={() => props.onVote(election)} >Vote</button>
+                                    <button className="btn" type="button" onClick={() => props.onVote(election)} >Vote</button>
                                 }
                             </td>
                         </tr>

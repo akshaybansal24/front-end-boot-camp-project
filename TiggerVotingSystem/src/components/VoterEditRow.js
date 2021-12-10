@@ -30,8 +30,8 @@ export const VoterEditRow = props =>{
             <td><input type="text" name="email" value={voterEditForm.email} onChange={change} ></input></td>
             <td><input type="text" name="phone" value={voterEditForm.phone} onChange={change} ></input></td>
             <td>
-                <button type="button" onClick={save}>Save</button>
-                <button type="button" onClick={() => props.cancel(-1)}>Cancel</button>
+                <button className="btn" type="button" onClick={save}>Save</button>
+                <button  className="btn" type="button" onClick={() => props.cancel(-1)}>Cancel</button>
             </td>
         </tr>
     );
