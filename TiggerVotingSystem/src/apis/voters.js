@@ -16,7 +16,7 @@ export const all = async() => {
 
 export const getOneVoter = async(voterId) => {
     try{
-        const res = await fetch('http://localhost:3060/voters/' + voterId)
+        const res = await fetch(`http://localhost:3060/voters/${encodeURIComponent(voterId)}`)
         const voter = await res.json();
         return voter;
     }

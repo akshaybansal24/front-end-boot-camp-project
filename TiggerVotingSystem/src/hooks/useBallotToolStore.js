@@ -15,6 +15,8 @@ export const useBallotToolStore = () => {
 
     const dispatch = useDispatch();
 
+    console.log("From the use Store = " + JSON.stringify(ballot));
+
     const boundActions = useMemo(() => bindActionCreators({
         castVote: createVoteCastAction,
         verifyVoter: createVoterVerifyAction,

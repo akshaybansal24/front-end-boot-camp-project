@@ -20,13 +20,22 @@ const ballotReducer = (ballot = {
         return {...ballot, election: action.payload.election, displayVoterForm: true};
     }
     if(action.type === VOTER_VERIFY_DONE_ACTION){
+        console.log("Voter verify done reducer" + JSON.stringify(action));
         if(Object.keys(action.payload.voter).length === 0){
             return {...ballot, errorMessage: 'The voter does not exist'};
         }
-        else if(ballot.election.votes.includes(action.payload.voter.id)){
-            return {...ballot, errorMessage: 'The voter has already voted in selected election'};
+        else if(ballot.election.voters.includes(action.payload.voter.id)){
+            return {
+                ...ballot, 
+                errorMessage: 'The voter has already voted in selected election',
+            };
         }else{
-            return {...ballot, voter: action.payload.voter, displayBallotForm: true}
+            return {
+                ...ballot, 
+                voter: action.payload.voter, 
+                displayBallotForm: true,
+                errorMessage: ''
+            }
         }
     }
     if(action.type === REFRESH_ELECTION_DONE_ACTION){

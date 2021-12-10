@@ -35,14 +35,15 @@ export const createSelectElectionAction = election => ({ type: SELECT_ELECTION_A
 
 export const createVerifyVoterRequestAction = voterId => ({ type: VOTER_VERIFY_REQUEST_ACTION, payload: {voterId}});
 
-export const createVerifyVoterDonetAction = voter => ({ type: SELECT_ELECTION_ACTION, payload: {voter}});
+export const createVerifyVoterDonetAction = voter => ({ type: VOTER_VERIFY_DONE_ACTION, payload: {voter}});
 
 export const createVoterVerifyAction = voterId => {
+    console.log("createVoterVerifyAction" + JSON.stringify(voterId));
     return dispatch => {
         dispatch(createVerifyVoterRequestAction(voterId));
         getOneVoter(voterId).then(voter => dispatch(createVerifyVoterDonetAction(voter)));
     };
-}
+};
 
 export const createVoteCastRequestAction = (election) => ({ type: VOTE_CAST_REQUEST_ACTION, payload: {election} });
 
