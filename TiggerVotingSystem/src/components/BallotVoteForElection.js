@@ -1,4 +1,5 @@
 import {createVoteCastAction} from '../actions/ballotToolActions';
+import {useState} from 'react';
 
 export const BallotVoteForElection = ({selectedVoterFromId, selectedElection, isValidatedForVoting}) => {
     // selectedVoterFromId = 1;
@@ -11,16 +12,32 @@ export const BallotVoteForElection = ({selectedVoterFromId, selectedElection, is
          {question: 'rainy', id: 2, yes: 0, no: 0},
          {question: 'snow', id: 3, yes: 0, no: 0},
          {question: 'overcast', id: 4, yes: 0, no: 0}],
-         year: 2032
+         year: 2032,
+         voter: []
         };
     isValidatedForVoting =true;
 
-    const handleOnChange = (value) => {
-        console.log(value);
+    const handleOnChange = (position) => {
+        const updatedCheckedState = checkedState.map((item, index) => index === position ? !item : item);
+
+        setCheckedState(updatedCheckedState);
+        console.log(checkedState);
     }
     const submitResponse = () => {
+        selectedElection.voter.push(selectedVoterFromId);
+        selectedElection.questions.forEach((question, index) => {
+            if(checkedState[index]){
+                question.yes++;
+            } else {
+                question.no++;
+            }
+        })
         createVoteCastAction(selectedElection)
     };
+
+    const [checkedState, setCheckedState] = useState(
+        new Array(selectedElection.questions.length).fill(false)
+    );
 
     return isValidatedForVoting && selectedElection ? (
         <div>
@@ -31,14 +48,14 @@ export const BallotVoteForElection = ({selectedVoterFromId, selectedElection, is
                 </tr>
             </thead>
             <tbody>
-                {selectedElection.questions.map(({question}) => {
+                {selectedElection.questions.map(({question}, index) => {
                     return (
                         <tr>
                             <td key={question.id}>  
                                 {question}  
                             </td>
                             <td>  
-                                <input type="checkbox" id={question} onChange={handleOnChange}/>
+                                <input type="checkbox" id={question.id} onChange={() => handleOnChange(index)} checked={checkedState[index]}/>
                             </td>
                         </tr>
                     )})
