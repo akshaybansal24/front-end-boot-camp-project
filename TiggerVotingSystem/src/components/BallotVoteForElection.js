@@ -49,13 +49,13 @@ export const BallotVoteForElection = ({selectedVoterFromId, selectedElection, is
                 </tr>
             </thead>
             <tbody>
-                {selectedElection.questions.map(({question}, index) => {
+                {selectedElection.questions.map((question, index) => {
                     return (
-                        <tr>
-                            <td key={question.id}>  
-                                {question}  
+                        <tr key={question.id} >
+                            <td key={1}>
+                                {question.question}
                             </td>
-                            <td>  
+                            <td key={2}>
                                 <input type="checkbox" id={question.id} onChange={() => handleOnChange(index)} checked={checkedState[index]}/>
                             </td>
                         </tr>
