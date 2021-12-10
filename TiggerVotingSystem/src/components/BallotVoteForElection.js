@@ -1,3 +1,5 @@
+import {createVoteCastAction} from '../actions/ballotToolActions';
+
 export const BallotVoteForElection = ({selectedVoterFromId, selectedElection, isValidatedForVoting}) => {
     // selectedVoterFromId = 1;
     selectedElection = {
@@ -13,7 +15,12 @@ export const BallotVoteForElection = ({selectedVoterFromId, selectedElection, is
         };
     isValidatedForVoting =true;
 
-    const submitResponse = () => {};
+    const handleOnChange = (value) => {
+        console.log(value);
+    }
+    const submitResponse = () => {
+        createVoteCastAction(selectedElection)
+    };
 
     return isValidatedForVoting && selectedElection ? (
         <div>
@@ -31,7 +38,7 @@ export const BallotVoteForElection = ({selectedVoterFromId, selectedElection, is
                                 {question}  
                             </td>
                             <td>  
-                                <input key={question.question} type="checkbox" id={question}/>
+                                <input type="checkbox" id={question} onChange={handleOnChange}/>
                             </td>
                         </tr>
                     )})
