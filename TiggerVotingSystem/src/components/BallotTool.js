@@ -1,6 +1,6 @@
 import { BallotList } from './BallotList.js';
 import { BallotVoterValidation } from './BallotVoterValidation';
-
+import { BallotVoteForElection } from './BallotVoteForElection';
 import { useBallotToolStore } from '../hooks/useBallotToolStore';
 
 export const BallotTool = () =>{
@@ -27,6 +27,7 @@ export const BallotTool = () =>{
                     election={store.ballot.election} 
                     voter={store.ballot.voter}
                     onSubmitVoterId = {store.verifyVoter}/> : <div></div>}
+            <BallotVoteForElection election={store.elections} error={true}/>
         </>
     )
 };
