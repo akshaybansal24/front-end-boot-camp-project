@@ -25,8 +25,10 @@ export const ElectionTool = () =>{
     const onAddElection = election => {
         const newElection = {
             ...election,
-            questions: store.questions
+            questions: store.questions,
+            voters: []
         }
+        delete newElection.question;
         store.addElection(newElection);
         store.resetQuestions();
         //store.addQuestion([]);
