@@ -24,7 +24,7 @@ const ballotReducer = (ballot = {
         if(Object.keys(action?.payload?.voter).length === 0){
             return {...ballot, errorMessage: 'The voter does not exist'};
         }
-        else if(ballot?.election?.voters.includes(action.payload.voter.id)){
+        else if(ballot && ballot.election && ballot.election.voters && ballot?.election?.voters.includes(action.payload.voter.id)){
             return {
                 ...ballot, 
                 errorMessage: 'The voter has already voted in selected election',

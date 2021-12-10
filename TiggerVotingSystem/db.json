@@ -146,6 +146,38 @@
       "question": "",
       "questions": [],
       "id": 6
+    },
+    {
+      "name": "Weather Today",
+      "year": "2022",
+      "question": "",
+      "questions": [
+        {
+          "question": "sunny",
+          "id": 1,
+          "yes": 0,
+          "no": 0
+        },
+        {
+          "question": "rainy",
+          "id": 2,
+          "yes": 0,
+          "no": 0
+        },
+        {
+          "question": "snow",
+          "id": 3,
+          "yes": 0,
+          "no": 0
+        },
+        {
+          "question": "overcast",
+          "id": 4,
+          "yes": 0,
+          "no": 0
+        }
+      ],
+      "id": 7
     }
   ],
   "votes": [
