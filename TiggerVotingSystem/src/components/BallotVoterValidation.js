@@ -6,7 +6,7 @@ export const BallotVoterValidation = props => {
 
     const onChangeVoterID = e => {
         setVoterID(
-            e.target.type === 'number' ? parseInt(e.target.value, 10) : e.target.value
+            e.target.type === 'number' &&  e.target.value ? parseInt(e.target.value, 10) : e.target.value
         );
     }
 
