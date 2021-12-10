@@ -27,9 +27,9 @@ export const App = () =>{
               <nav>
                 <ul className="menu">
                 <li className="menu-item"><Link to="/">Home</Link></li>
-                <li className="menu-item"><Link to="/voter-tool">Voter Tool</Link></li>
-                    <li className="menu-item"><Link to="/election-tool">Election Tool</Link></li>
-                    <li className="menu-item"><Link to="/ballot-tool">Ballot Tool</Link></li>
+                <li className="menu-item"><Link to="/voter-tool">Voters</Link></li>
+                    <li className="menu-item"><Link to="/election-tool">Elections</Link></li>
+                    <li className="menu-item"><Link to="/ballot-tool">Ballots</Link></li>
                 </ul>
             </nav>
             <main>
